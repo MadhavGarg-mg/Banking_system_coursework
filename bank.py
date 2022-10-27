@@ -1,6 +1,24 @@
 class Client:
 
-    def __init__(self, first_name, last_name, pronouns, date_of_birth, occupation, account_balance, overdraft_limit):
+    def __init__(self, title, first_name, last_name, pronouns, date_of_birth, occupation, account_balance,
+                 overdraft_limit):
+        if not isinstance(title, str):
+            raise TypeError("Title should be of type string.")
+        if not isinstance(first_name, str):
+            raise TypeError("First name should be of type string.")
+        if not isinstance(last_name, str):
+            raise TypeError("Last name should be of type string.")
+        if not isinstance(pronouns, str):
+            raise TypeError("pronouns should be of type string.")
+        if not isinstance(date_of_birth, str):
+            raise TypeError("Date of birth should be of type string.")
+        if not isinstance(occupation, str):
+            raise TypeError("Occupation should be of type string.")
+        if not isinstance(account_balance, float):
+            raise TypeError("Account balance should be of type float.")
+        if not isinstance(overdraft_limit, float):
+            raise TypeError("Overdraft limit should be of type string.")
+        self.title = title
         self.first_name = first_name
         self.last_name = last_name
         self.pronouns = pronouns
@@ -11,6 +29,7 @@ class Client:
 
     def show_details(self):
         print('Client Details')
+        print('Title: ', self.title)
         print('First name: ', self.first_name)
         print('Last name: ', self.last_name)
         print('pronouns: ', self.pronouns)
@@ -29,10 +48,13 @@ class Client:
         else:
             self.account_balance -= (amount + 5)
 
-    def update_first_name(self, new_first_name):
+    def set_title(self, title):
+        self.first_name = title
+
+    def set_first_name(self, new_first_name):
         self.first_name = new_first_name
 
-    def update_last_name(self, new_last_name):
+    def set_last_name(self, new_last_name):
         self.last_name = new_last_name
 
     def update_pronouns(self, new_pronouns):
