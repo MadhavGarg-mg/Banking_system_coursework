@@ -1,7 +1,7 @@
 class Client:
 
     def __init__(self, title: str, first_name: str, last_name: str, pronouns: str, date_of_birth: str, occupation: str,
-                 account_balance: float, overdraft_limit: float):
+                 account_balance: (float, int), overdraft_limit: (float, int)):
         if not isinstance(title, str):
             raise TypeError("Title should be of type string.")
         if not isinstance(first_name, str):
@@ -28,17 +28,9 @@ class Client:
         self.account_balance = account_balance
         self.overdraft_limit = overdraft_limit
 
-    def show_all_details(self):
-        print('Client Details')
-        print('Title: ', self.title)
-        print('First name: ', self.first_name)
-        print('Last name: ', self.last_name)
-        print('pronouns: ', self.pronouns)
-        print('date_of_birth: ', self.date_of_birth)
-        print('occupation: ', self.occupation)
-        print('account_balance: ', self.account_balance)
-        print('overdraft_limit:', self.overdraft_limit)
-        return '\r'
+    def __repr__(self):
+        return f' Client({self.title}, {self.first_name}, {self.last_name}, {self.pronouns}, {self.date_of_birth}' \
+               f', {self.occupation}, {self.account_balance}, {self.overdraft_limit})'
 
     def get_title(self):
         return self.title
