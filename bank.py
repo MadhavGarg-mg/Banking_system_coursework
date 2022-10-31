@@ -1,7 +1,7 @@
 class Client:
 
-    def __init__(self, title, first_name, last_name, pronouns, date_of_birth, occupation, account_balance,
-                 overdraft_limit):
+    def __init__(self, title: str, first_name: str, last_name: str, pronouns: str, date_of_birth: str, occupation: str,
+                 account_balance: float, overdraft_limit: float):
         if not isinstance(title, str):
             raise TypeError("Title should be of type string.")
         if not isinstance(first_name, str):
@@ -14,10 +14,11 @@ class Client:
             raise TypeError("Date of birth should be of type string.")
         if not isinstance(occupation, str):
             raise TypeError("Occupation should be of type string.")
-        if not isinstance(account_balance, float):
-            raise TypeError("Account balance should be of type float.")
-        if not isinstance(overdraft_limit, float):
-            raise TypeError("Overdraft limit should be of type string.")
+        if not isinstance(account_balance, (float, int)):
+            raise TypeError("Account balance should be of type integer or float.")
+        if not isinstance(overdraft_limit, (float, int)):
+            raise TypeError("Overdraft limit should be of type integer or float.")
+
         self.title = title
         self.first_name = first_name
         self.last_name = last_name
@@ -27,7 +28,7 @@ class Client:
         self.account_balance = account_balance
         self.overdraft_limit = overdraft_limit
 
-    def show_details(self):
+    def show_all_details(self):
         print('Client Details')
         print('Title: ', self.title)
         print('First name: ', self.first_name)
@@ -39,6 +40,30 @@ class Client:
         print('overdraft_limit:', self.overdraft_limit)
         return '\r'
 
+    def get_title(self):
+        return self.title
+
+    def get_first_name(self):
+        return self.first_name
+
+    def get_last_name(self):
+        return self.last_name
+
+    def get_pronouns(self):
+        return self.pronouns
+
+    def get_date_of_birth(self):
+        return self.date_of_birth
+
+    def get_occupation(self):
+        return self.occupation
+
+    def get_account_balance(self):
+        return self.account_balance
+
+    def get_overdraft_limit(self):
+        return self.overdraft_limit
+
     def deposit(self, amount):
         self.account_balance += amount
 
@@ -48,13 +73,13 @@ class Client:
         else:
             self.account_balance -= (amount + 5)
 
-    def set_title(self, title):
+    def update_title(self, title):
         self.first_name = title
 
-    def set_first_name(self, new_first_name):
+    def update_first_name(self, new_first_name):
         self.first_name = new_first_name
 
-    def set_last_name(self, new_last_name):
+    def update_last_name(self, new_last_name):
         self.last_name = new_last_name
 
     def update_pronouns(self, new_pronouns):
