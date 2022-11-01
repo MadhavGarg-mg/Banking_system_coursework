@@ -4,33 +4,39 @@ class Client:
                  account_balance: (float, int), overdraft_limit: (float, int)):
         if not isinstance(title, str):
             raise TypeError("Title should be of type string.")
+        self.title = title
+
         if not isinstance(first_name, str):
             raise TypeError("First name should be of type string.")
+        self.first_name = first_name
+
         if not isinstance(last_name, str):
             raise TypeError("Last name should be of type string.")
+        self.last_name = last_name
+
         if not isinstance(pronouns, str):
             raise TypeError("pronouns should be of type string.")
+        self.pronouns = pronouns
+
         if not isinstance(date_of_birth, str):
             raise TypeError("Date of birth should be of type string.")
+        self.__date_of_birth = date_of_birth
+
         if not isinstance(occupation, str):
             raise TypeError("Occupation should be of type string.")
+        self.occupation = occupation
+
         if not isinstance(account_balance, (float, int)):
             raise TypeError("Account balance should be of type integer or float.")
+        self.__account_balance = account_balance
+
         if not isinstance(overdraft_limit, (float, int)):
             raise TypeError("Overdraft limit should be of type integer or float.")
-
-        self.title = title
-        self.first_name = first_name
-        self.last_name = last_name
-        self.pronouns = pronouns
-        self.date_of_birth = date_of_birth
-        self.occupation = occupation
-        self.account_balance = account_balance
-        self.overdraft_limit = overdraft_limit
+        self.__overdraft_limit = overdraft_limit
 
     def __repr__(self):
-        return f' Client({self.title}, {self.first_name}, {self.last_name}, {self.pronouns}, {self.date_of_birth}' \
-               f', {self.occupation}, {self.account_balance}, {self.overdraft_limit})'
+        return f' Client({self.title}, {self.first_name}, {self.last_name}, {self.pronouns},' \
+               f' {self.__date_of_birth}, {self.occupation}, {self.__account_balance}, {self.__overdraft_limit})'
 
     def get_title(self):
         return self.title
@@ -45,46 +51,63 @@ class Client:
         return self.pronouns
 
     def get_date_of_birth(self):
-        return self.date_of_birth
+        return self.__date_of_birth
 
     def get_occupation(self):
         return self.occupation
 
     def get_account_balance(self):
-        return self.account_balance
+        return self.__account_balance
 
     def get_overdraft_limit(self):
-        return self.overdraft_limit
+        return self.__overdraft_limit
 
     def deposit(self, amount):
-        self.account_balance += amount
+        self.__account_balance += amount
 
     def withdraw(self, amount):
-        if self.account_balance - amount >= -self.overdraft_limit:
-            self.account_balance -= amount
+        if self.__account_balance - amount >= -self.__overdraft_limit:
+            self.__account_balance -= amount
         else:
-            self.account_balance -= (amount + 5)
+            self.__account_balance -= (amount + 5)
 
-    def update_title(self, title):
-        self.first_name = title
+    def set_title(self, title):
+        if not isinstance(title, str):
+            raise TypeError("Title should be of type string.")
+        self.title = title
 
-    def update_first_name(self, new_first_name):
-        self.first_name = new_first_name
+    def set_first_name(self, first_name):
+        if not isinstance(first_name, str):
+            raise TypeError("First name should be of type string.")
+        self.first_name = first_name
 
-    def update_last_name(self, new_last_name):
-        self.last_name = new_last_name
+    def set_last_name(self, last_name):
+        if not isinstance(last_name, str):
+            raise TypeError("Last name should be of type string.")
+        self.last_name = last_name
 
-    def update_pronouns(self, new_pronouns):
-        self.pronouns = new_pronouns
+    def set_pronouns(self, pronouns):
+        if not isinstance(pronouns, str):
+            raise TypeError("pronouns should be of type string.")
+        self.pronouns = pronouns
 
-    def update_date_of_birth(self, new_date_of_birth):
-        self.date_of_birth = new_date_of_birth
+    def set_date_of_birth(self, date_of_birth):
+        if not isinstance(date_of_birth, str):
+            raise TypeError("Date of birth should be of type string.")
+        self.__date_of_birth = date_of_birth
 
-    def update_occupation(self, new_occupation):
-        self.date_of_birth = new_occupation
+    def set_occupation(self, occupation):
+        if not isinstance(occupation, str):
+            raise TypeError("Occupation should be of type string.")
+        self.occupation = occupation
 
-    def update_account_balance(self, new_account_balance):
-        self.date_of_birth = new_account_balance
+    def set_account_balance(self, account_balance):
+        if not isinstance(account_balance, (float, int)):
+            raise TypeError("Account balance should be of type integer or float.")
+        self.__account_balance = account_balance
 
-    def update_overdraft_limit(self, new_overdraft_limit):
-        self.date_of_birth = new_overdraft_limit
+    def set_overdraft_limit(self, overdraft_limit):
+        if not isinstance(overdraft_limit, (float, int)):
+            raise TypeError("Overdraft limit should be of type integer or float.")
+        self.__overdraft_limit = overdraft_limit
+
