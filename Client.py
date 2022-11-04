@@ -1,8 +1,8 @@
 from datetime import date
+from Bank import Lloyds
 
 
 class Client:
-    clients = []
 
     def __init__(self, title: str, first_name: str, last_name: str, pronouns: str, date_of_birth: date, occupation: str,
                  account_balance: (float, int), overdraft_limit: (float, int)):
@@ -31,9 +31,9 @@ class Client:
         self.occupation = occupation
         self.__account_balance = account_balance
         self.__overdraft_limit = overdraft_limit
-        # self.all = [title, first_name, last_name, pronouns, date_of_birth, occupation, account_balance,
-        # overdraft_limit]
-        # self.clients.append(self.all)
+        self.clients = [title, first_name, last_name, pronouns, date_of_birth,
+                        occupation, account_balance, overdraft_limit]
+        Lloyds.clients.append(self.clients)
 
     def __repr__(self) -> str:
         """This function returns all the information of the Client"""
@@ -131,10 +131,3 @@ class Client:
         if not isinstance(overdraft_limit, (float, int)):
             raise TypeError("Overdraft limit should be of type integer or float.")
         self.__overdraft_limit = overdraft_limit
-
-    def list_all(self):
-        lst = [self.title, self.first_name, self.last_name, self.pronouns, self.__date_of_birth, self.occupation,
-               self.__account_balance, self.__overdraft_limit]
-        self.clients.append(lst)
-        for i in range(len(Client.clients)):
-            print(*Client.clients[i])
