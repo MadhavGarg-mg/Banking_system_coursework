@@ -1,10 +1,10 @@
-from datetime import date
 import Bank
+import csv
 
 
 class Client:
 
-    def __init__(self, title: str, first_name: str, last_name: str, pronouns: str, date_of_birth: date, occupation: str,
+    def __init__(self, title: str, first_name: str, last_name: str, pronouns: str, date_of_birth: str, occupation: str,
                  account_balance: (float, int), overdraft_limit: (float, int)):
         if not isinstance(title, str):
             raise TypeError("Title should be of type string.")
@@ -14,7 +14,7 @@ class Client:
             raise TypeError("Last name should be of type string.")
         if not isinstance(pronouns, str):
             raise TypeError("pronouns should be of type string.")
-        if not isinstance(date_of_birth, date):
+        if not isinstance(date_of_birth, str):
             raise TypeError("Date of birth should be of type date.")
         if not isinstance(occupation, str):
             raise TypeError("Occupation should be of type string.")
@@ -31,9 +31,9 @@ class Client:
         self.occupation = occupation
         self.__account_balance = account_balance
         self.__overdraft_limit = overdraft_limit
-        self.clients = [title, first_name, last_name, pronouns, date_of_birth,
-                        occupation, account_balance, overdraft_limit]
-        Bank.Bank.clients.append(self.clients)
+        self.client = [title, first_name, last_name, pronouns, date_of_birth,
+                       occupation, account_balance, overdraft_limit]
+        Bank.Bank.clients.append(self.client)
 
     def __repr__(self) -> str:
         """This function returns all the information of the Client"""
@@ -56,7 +56,7 @@ class Client:
         """This function returns the pronouns of the Client"""
         return self.pronouns
 
-    def get_date_of_birth(self) -> date:
+    def get_date_of_birth(self) -> str:
         """This function returns the date_pf_birth of the Client"""
         return self.__date_of_birth
 
@@ -131,3 +131,11 @@ class Client:
         if not isinstance(overdraft_limit, (float, int)):
             raise TypeError("Overdraft limit should be of type integer or float.")
         self.__overdraft_limit = overdraft_limit
+
+    def file_to_object(self):
+        with open('clients.csv', 'r') as file:
+            reader = csv.reader(file)
+            for client in reader:
+                globals()[f'{client[1]} {client[2]}'] = Client(self.client[0], self.client[1], self.client[2],
+                                                               self.client[3], self.client[4], self.client[5],
+                                                               int(self.client[6]), int(self.client[7]))
