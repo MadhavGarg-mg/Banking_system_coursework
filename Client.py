@@ -1,5 +1,5 @@
 from datetime import date
-from Bank import Lloyds
+import Bank
 
 
 class Client:
@@ -33,7 +33,7 @@ class Client:
         self.__overdraft_limit = overdraft_limit
         self.clients = [title, first_name, last_name, pronouns, date_of_birth,
                         occupation, account_balance, overdraft_limit]
-        Lloyds.clients.append(self.clients)
+        Bank.Bank.clients.append(self.clients)
 
     def __repr__(self) -> str:
         """This function returns all the information of the Client"""
