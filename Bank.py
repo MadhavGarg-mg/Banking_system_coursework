@@ -59,4 +59,5 @@ class Bank:
         with open('clients.csv', 'a', newline='') as file:
             writer = csv.writer(file)
             for i in range(len(self.clients)):
-                writer.writerow(self.clients[i]) # Save the value of i so u can go ahead instead of appending the same values
+                writer.writerow(self.clients[i])
+                # Save the value of i so u can go ahead instead of appending the same values
