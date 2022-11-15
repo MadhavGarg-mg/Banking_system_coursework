@@ -94,23 +94,21 @@ class Bank:
             list_clients.append(self.clients[i])
         return list_clients
 
-    def delete_client(self, client) -> None:
+    def delete_client(self, clients) -> None:
         """
         This function removes the client from the list of clients.
-
-        Arguments:
-            client: The client
         """
         result = None
         for i in range(len(self.clients)):
-            for j in range(7):
-                if self.clients[i][j] == client.client[j]:
+            for j in range(8):
+                if self.clients[i][j] == clients.client[j]:
                     result = True
                 else:
                     result = False
                     break
             if result:
                 del self.clients[i]
+                break
 
     def object_to_file(self) -> None:
         """
