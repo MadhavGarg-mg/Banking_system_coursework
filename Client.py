@@ -4,7 +4,7 @@ import Bank
 clients_in_list = []
 
 
-def file_to_list_object():
+def file_to_list_object() -> object:
     """This function returns the list of object using the csv file clients.csv."""
     with open('clients.csv', 'r') as file:
         for client in file:
@@ -17,8 +17,7 @@ def file_to_list_object():
 
                                           values[5], int(values[6]), int(values[7])))
 
-        for i in range(len(clients_in_list)):
-            return clients_in_list
+        return clients_in_list
 
 
 class Client:

@@ -10,7 +10,8 @@ def main():
     ab = Client.Client('Mrs', 'Ab', 'Suter', 'She/Her', date(1986, 5, 26), 'Marketing Assistant', 58670, 100)
     john1 = Client.Client('Mrs', 'John', 'Suter', 'She/Her', date(1986, 5, 26), 'Marketing Assistant', 58670, 100)
 
-    print(john)
+    # bank.object_to_file()
+    print(Client.file_to_list_object())
 
 
 main()
