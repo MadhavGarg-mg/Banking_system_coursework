@@ -4,7 +4,7 @@ import csv
 
 class Bank:
     """
-    This is a class for creating clients for a bank.
+    This is a class for a bank to find clients and delete clients.
     """
     clients = []
 
@@ -110,8 +110,7 @@ class Bank:
                     result = False
                     break
             if result:
-                print(client)
-                # del self.clients[i]
+                del self.clients[i]
 
     def object_to_file(self) -> None:
         """
