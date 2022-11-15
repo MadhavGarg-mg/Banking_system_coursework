@@ -10,11 +10,7 @@ def main():
     ab = Client.Client('Mrs', 'Ab', 'Suter', 'She/Her', date(1986, 5, 26), 'Marketing Assistant', 58670, 100)
     john1 = Client.Client('Mrs', 'John', 'Suter', 'She/Her', date(1986, 5, 26), 'Marketing Assistant', 58670, 100)
 
-    print(bank.list_by_first_name('john'))
-    print(Client.file_to_list_object())
-    print(Client.file_to_list_object()[0].get_first_name())
-    del john
-    print(bank.list_by_first_name('john'))
+    print(john)
 
 
 main()
