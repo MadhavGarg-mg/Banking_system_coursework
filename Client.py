@@ -17,17 +17,10 @@ def file_to_list_object():
                                           values[5], int(values[6]), int(values[7])))
 
         for i in range(len(clients_in_list)):
-
-            return clients_in_list[i + 1]
-
-
-# def list_object_to_object():
-#     lst = file_to_list_object()
-#     for i in lst:
+            return clients_in_list
 
 
 class Client:
-
     def __init__(self, title: str, first_name: str, last_name: str, pronouns: str,
                  date_of_birth: date, occupation: str,
                  account_balance: (float, int), overdraft_limit: (float, int)):
@@ -156,11 +149,3 @@ class Client:
         if not isinstance(overdraft_limit, (float, int)):
             raise TypeError("Overdraft limit should be of type integer or float.")
         self.__overdraft_limit = overdraft_limit
-
-    # def file_to_object(self):
-    #     with open('clients.csv', 'r') as file:
-    #         reader = csv.reader(file)
-    #         for client in reader:
-    #             globals()[f'{client[1]} {client[2]}'] = Client(self.client[0], self.client[1], self.client[2],
-    #                                                            self.client[3], self.client[4], self.client[5],
-    #                                                            int(self.client[6]), int(self.client[7]))

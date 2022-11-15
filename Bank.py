@@ -1,4 +1,3 @@
-# from Client import Client
 from datetime import date
 import csv
 
@@ -9,7 +8,7 @@ class Bank:
     def __init__(self):
         pass
 
-    def list_by_first_name(self, first_name):
+    def list_by_first_name(self, first_name: str):
         for i in range(len(self.clients)):
             if self.clients[i][1] == first_name:
                 print(Bank.clients[i])
@@ -60,4 +59,3 @@ class Bank:
             writer = csv.writer(file)
             for i in range(len(self.clients)):
                 writer.writerow(self.clients[i])
-                # Save the value of i so u can go ahead instead of appending the same values
