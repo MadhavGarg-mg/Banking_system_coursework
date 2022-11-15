@@ -4,7 +4,7 @@ import Bank
 clients_in_list = []
 
 
-def file_to_list_object() -> object:
+def file_to_list_object() -> list[object]:
     """This function returns the list of object using the csv file clients.csv."""
     with open('clients.csv', 'r') as file:
         for client in file:
@@ -120,7 +120,7 @@ class Client:
         """This function adds the amount in the account_balance of the Client"""
         self.__account_balance += amount
 
-    def withdraw(self, amount):
+    def withdraw(self, amount: int) -> None:
         """This function subtracts the amount in the account_balance of the Client if the account_balance is above
         the overdraft_limit, otherwise it subtracts 5 extra for every transaction surpassing the overdraft_limit"""
         if self.__account_balance - amount >= -self.__overdraft_limit:

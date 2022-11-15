@@ -11,7 +11,11 @@ def main():
     john1 = Client.Client('Mrs', 'John', 'Suter', 'She/Her', date(1986, 5, 26), 'Marketing Assistant', 58670, 100)
 
     # bank.object_to_file()
+    print(bank.list_by_first_name('John'))
+    print(bank.list_by_last_name('Suter'))
+    print(bank.list_by_negative_balance())
     print(Client.file_to_list_object())
+    print(bank.delete_client(john))
 
 
 main()
