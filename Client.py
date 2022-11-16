@@ -81,48 +81,48 @@ class Client:
         """This function returns the title, first name, last name, pronouns, date of birth, occupation, account balance,
         and overdraft limit the information of the Client.
         """
-        return f' Client({self.title}, {self.first_name}, {self.last_name}, {self.pronouns},' \
+        return f'Client({self.title}, {self.first_name}, {self.last_name}, {self.pronouns},' \
                f' {self.__date_of_birth}, {self.occupation}, {self.__account_balance}, {self.__overdraft_limit})'
 
     def get_title(self) -> str:
-        """This function returns the title of the Client"""
+        """This function returns the title of the Client."""
         return self.title
 
     def get_first_name(self) -> str:
-        """This function returns the first_name of the Client"""
+        """This function returns the first_name of the Client."""
         return self.first_name
 
     def get_last_name(self) -> str:
-        """This function returns the last_name of the Client"""
+        """This function returns the last_name of the Client."""
         return self.last_name
 
     def get_pronouns(self) -> str:
-        """This function returns the pronouns of the Client"""
+        """This function returns the pronouns of the Client."""
         return self.pronouns
 
     def get_date_of_birth(self) -> date:
-        """This function returns the date_pf_birth of the Client"""
+        """This function returns the date_pf_birth of the Client."""
         return self.__date_of_birth
 
     def get_occupation(self) -> str:
-        """This function returns the occupation of the Client"""
+        """This function returns the occupation of the Client."""
         return self.occupation
 
     def get_account_balance(self) -> (float, int):
-        """This function returns the account_balance of the Client"""
+        """This function returns the account_balance of the Client."""
         return self.__account_balance
 
     def get_overdraft_limit(self) -> (float, int):
-        """This function returns the overdraft_limit of the Client"""
+        """This function returns the overdraft_limit of the Client."""
         return self.__overdraft_limit
 
     def deposit(self, amount: float):
-        """This function adds the amount in the account_balance of the Client"""
+        """This function adds the amount in the account_balance of the Client."""
         self.__account_balance += amount
 
     def withdraw(self, amount: (int, float)) -> None:
         """This function subtracts the amount in the account_balance of the Client if the account_balance is above
-        the overdraft_limit, otherwise it subtracts 5 extra for every transaction surpassing the overdraft_limit"""
+        the overdraft_limit, otherwise it subtracts 5 extra for every transaction surpassing the overdraft_limit."""
         if self.__account_balance - amount >= -self.__overdraft_limit:
             self.__account_balance -= amount
         else:
@@ -171,7 +171,7 @@ class Client:
         self.__account_balance = new_account_balance
 
     def set_overdraft_limit(self, new_overdraft_limit: (float, int)):
-        """This function sets the overdraft_limit of the client as the new_overdraft_limit"""
+        """This function sets the overdraft_limit of the client as the new_overdraft_limit."""
         if not isinstance(new_overdraft_limit, (float, int)):
             raise TypeError("Overdraft limit should be of type integer or float.")
         self.__overdraft_limit = new_overdraft_limit
