@@ -1,10 +1,10 @@
 from datetime import date
-import Bank
+import bank
 
 clients_in_list = []
 
 
-def file_to_list_object() -> list[list]:
+def file_to_list_object() -> list[object]:
     """This function returns the list of object using the csv file clients.csv."""
     with open('clients.csv', 'r') as file:
         for client in file:
@@ -75,7 +75,7 @@ class Client:
         self.__overdraft_limit = overdraft_limit
         self.client = [title, first_name, last_name, pronouns, date_of_birth,
                        occupation, account_balance, overdraft_limit]
-        Bank.Bank.clients.append(self.client)
+        bank.Bank.clients.append(self.client)
 
     def __repr__(self) -> str:
         """This function returns the title, first name, last name, pronouns, date of birth, occupation, account balance,
@@ -116,7 +116,7 @@ class Client:
         """This function returns the overdraft_limit of the Client."""
         return self.__overdraft_limit
 
-    def deposit(self, amount: float):
+    def deposit(self, amount: (int, float)):
         """This function adds the amount in the account_balance of the Client."""
         self.__account_balance += amount
 
