@@ -14,6 +14,17 @@ class Bank:
         """
         pass
 
+    # def add_client(self, client):
+    #     """
+    #             This function takes the argument first_name and returns the list of the information of
+    #             all clients with that first name.
+    #
+    #             Attributes:
+    #                 client (object): The client.
+    #             """
+    #     self.clients.append(client)
+    #
+
     def list_by_first_name(self, first_name: str) -> list[list]:
         """
         This function takes the argument first_name and returns the list of the information of
@@ -94,22 +105,27 @@ class Bank:
             list_clients.append(self.clients[i])
         return list_clients
 
-    def delete_client(self, clients) -> None:
-        """This function removes the client from the list of clients."""
+    def delete_client(self, client) -> None:
+        """
+        This function removes the client from the list of clients.
+
+        Attributes:
+            client (object): The client.
+        """
         client_in_list = False
         for i in range(len(self.clients)):
             for j in range(8):
-                if self.clients[i][j] == clients.client[j]:
+                if self.clients[i][j] == client.client[j]:
                     client_in_list = True
             if client_in_list:
                 del self.clients[i]
                 break
 
-    def object_to_file(self) -> None:
+    def object_to_file(self, file: str, option: str) -> None:
         """
         This function takes the clients and appends it into client.csv
         """
-        with open('clients.csv', 'a', newline='') as file:
+        with open(file, option, newline='') as file:
             writer = csv.writer(file)
             for i in range(len(self.clients)):
                 writer.writerow(self.clients[i])
