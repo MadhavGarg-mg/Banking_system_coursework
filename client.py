@@ -4,9 +4,9 @@ import bank
 clients_in_list = []
 
 
-def file_to_list_object() -> list[object]:
+def file_to_list_object(file) -> list[object]:
     """This function returns the list of object using the csv file clients.csv."""
-    with open('clients.csv', 'r') as client_file:
+    with open(file, 'r') as client_file:
         for client in client_file:
             values = client.split(',')
             clients_in_list.append(Client(values[0], values[1], values[2], values[3],
@@ -33,6 +33,7 @@ class Client:
         account_balance (int, float): The account balance of the client.
         overdraft_limit (int, float): The overdraft limit of the client.
     """
+
     def __init__(self, title: str, first_name: str, last_name: str, pronouns: str,
                  date_of_birth: date, occupation: str,
                  account_balance: (float, int), overdraft_limit: (float, int)):
@@ -125,15 +126,21 @@ class Client:
 
     def deposit(self, amount: (int, float)):
         """This function adds the amount in the account_balance of the Client."""
-        self.__account_balance += amount
+        if amount > 0:
+            self.__account_balance += amount
+        else:
+            raise TypeError
 
     def withdraw(self, amount: (int, float)) -> None:
         """This function subtracts the amount in the account_balance of the Client if the account_balance is above
         the overdraft_limit, otherwise it subtracts 5 extra for every transaction surpassing the overdraft_limit."""
-        if self.__account_balance - amount >= -self.__overdraft_limit:
-            self.__account_balance -= amount
+        if amount > 0:
+            if self.__account_balance - amount >= -self.__overdraft_limit:
+                self.__account_balance -= amount
+            else:
+                self.__account_balance -= (amount + 5)
         else:
-            self.__account_balance -= (amount + 5)
+            raise TypeError
 
     def set_title(self, new_title: str):
         """This function sets the title of the client as the new_title."""
@@ -170,4 +177,3 @@ class Client:
         if not isinstance(new_occupation, str):
             raise TypeError("Occupation should be of type string.")
         self.occupation = new_occupation
-
