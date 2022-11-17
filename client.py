@@ -6,8 +6,8 @@ clients_in_list = []
 
 def file_to_list_object() -> list[object]:
     """This function returns the list of object using the csv file clients.csv."""
-    with open('clients.csv', 'r') as file:
-        for client in file:
+    with open('clients.csv', 'r') as client_file:
+        for client in client_file:
             values = client.split(',')
             clients_in_list.append(Client(values[0], values[1], values[2], values[3],
 
@@ -76,6 +76,13 @@ class Client:
         self.client = [title, first_name, last_name, pronouns, date_of_birth,
                        occupation, account_balance, overdraft_limit]
         bank.Bank.clients.append(self.client)
+
+    def __str__(self) -> str:
+        """This function returns the title, first name, last name, pronouns, date of birth, occupation, account balance,
+        and overdraft limit the information of the Client.
+        """
+        return f'{self.title}, {self.first_name}, {self.last_name}, {self.pronouns},' \
+               f' {self.__date_of_birth}, {self.occupation}, {self.__account_balance}, {self.__overdraft_limit}'
 
     def __repr__(self) -> str:
         """This function returns the title, first name, last name, pronouns, date of birth, occupation, account balance,
@@ -164,14 +171,3 @@ class Client:
             raise TypeError("Occupation should be of type string.")
         self.occupation = new_occupation
 
-    def set_account_balance(self, new_account_balance: (float, int)):
-        """This function sets the account_balance of the client as the new_account."""
-        if not isinstance(new_account_balance, (float, int)):
-            raise TypeError("Account balance should be of type integer or float.")
-        self.__account_balance = new_account_balance
-
-    def set_overdraft_limit(self, new_overdraft_limit: (float, int)):
-        """This function sets the overdraft_limit of the client as the new_overdraft_limit."""
-        if not isinstance(new_overdraft_limit, (float, int)):
-            raise TypeError("Overdraft limit should be of type integer or float.")
-        self.__overdraft_limit = new_overdraft_limit
