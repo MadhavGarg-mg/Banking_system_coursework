@@ -1,5 +1,3 @@
-"""This file contains all the tests."""
-
 import client
 from bank import Bank
 from datetime import date
@@ -308,6 +306,7 @@ def test_delete_client():
 
 
 def main():
+    """This runs all the function to test the code."""
     test_client()
     test_bad_client()
     test_getters()

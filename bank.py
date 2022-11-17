@@ -14,17 +14,6 @@ class Bank:
         """
         pass
 
-    # def add_client(self, client):
-    #     """
-    #             This function takes the argument first_name and returns the list of the information of
-    #             all clients with that first name.
-    #
-    #             Attributes:
-    #                 client (object): The client.
-    #             """
-    #     self.clients.append(client)
-    #
-
     def list_by_first_name(self, first_name: str) -> list[list]:
         """
         This function takes the argument first_name and returns the list of the information of
