@@ -1,2 +1,3 @@
-"# c2064676_csc1034_project2_2022" 
-"# c2064676_csc1034_project2_2022" 
+# CSC1034: Project 2
+
+This package is build as a part of the CSC1034: Project 2.

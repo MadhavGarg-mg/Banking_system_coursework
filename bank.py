@@ -95,18 +95,13 @@ class Bank:
         return list_clients
 
     def delete_client(self, clients) -> None:
-        """
-        This function removes the client from the list of clients.
-        """
-        result = None
+        """This function removes the client from the list of clients."""
+        client_in_list = False
         for i in range(len(self.clients)):
             for j in range(8):
                 if self.clients[i][j] == clients.client[j]:
-                    result = True
-                else:
-                    result = False
-                    break
-            if result:
+                    client_in_list = True
+            if client_in_list:
                 del self.clients[i]
                 break
 
