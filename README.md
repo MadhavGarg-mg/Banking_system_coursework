@@ -91,16 +91,37 @@ We can sort the list of all clients by using the list_by functions. The assumpti
 the arguments passed by the user will be case sensitive.
 
 We can sort the clients in 4 ways:
-1. list_by_first_name(arg) returns a list of all the clients that have the same first name as the arg.
-2. list_by_last_name(arg) returns a list of all the clients that have the same last name as the arg.
-3. list_by_birthday(arg) returns a list of all the clients that have the same birthday as the arg.
+1. list_by_first_name(arg) returns a list of all the clients that have the same first name as the argument. 
+2. list_by_last_name(arg) returns a list of all the clients that have the same last name as the argument.
+3. list_by_birthday(arg) returns a list of all the clients that have the same birthday as the argument.
 4. list_by_negative_balance() returns a list of all the clients that have a negative account balance.
 ---
 
 ### list all
-We can also get a list of all the clients using the list_all() function.
+We can also get a list of all the clients in the bank using the list all function.
 
-```
-print(list_all())
-```
+list_all()
 
+---
+
+### Delete client
+We can also delete a client from the list of clients. 
+
+delete_client(arg) argument is the client.
+
+---
+
+### Client to file
+We can also put all the clients into a file, we can write all the clients to the file or we can append 
+new client to a file.
+
+object_to_file(arg1, arg2) argument1 is the file we want to add clients into, and the argument2 is the 
+mode(write or append) we want to choose.
+---
+
+### Data retrieval
+We can also retrieve our clients from the file we create and use them to run functions.
+
+file_to_list_object(arg) argument is the file from which the data will be retrieved.
+
+---
