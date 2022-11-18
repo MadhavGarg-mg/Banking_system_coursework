@@ -11,7 +11,6 @@ directly from the csv when we have to.
 ---
 
 
-## 
 ## Creating a client
 We can create a client by putting the objects such as title, first name, last name, pronouns, date of birth,
 occupation, account balance, and overdraft limit in Client.
