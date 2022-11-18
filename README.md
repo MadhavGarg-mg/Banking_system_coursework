@@ -10,7 +10,10 @@ directly from the csv when we have to.
 
 ---
 
+## Running the file
+To run the file, you have to go to main.py and run main() which is at the end of the file.
 
+---
 ## Creating a client
 We can create a client by putting the objects such as title, first name, last name, pronouns, date of birth,
 occupation, account balance, and overdraft limit in Client.
