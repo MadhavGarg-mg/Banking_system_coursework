@@ -286,7 +286,7 @@ def test_list_all():
 
 def test_object_to_file():
     """This test will create a file clients.csv, and it will have all the clients in it."""
-    bank.object_to_file('clients.csv', 'a')
+    bank.object_to_file('clients.csv', 'w')
 
 
 def test_file_to_list_object():
