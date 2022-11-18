@@ -1,11 +1,11 @@
 # CSC1034: Project 2
 
-This package is build as a part of the CSC1034: Project 2.
+This package is built as a part of CSC1034: Project 2.
 
 This is a simple banking application that can handle the need of more than 100 clients. The application can add, 
-edit, and delete clients. It can also help the clients withdraw and deposit their money. We can also
+edit, and delete clients. It can also help clients withdraw and deposit their money. We can also
 get a list of all the clients in the bank and also sort them according to their first name, last name,
-date of birth, and if they have negative balance. We can also put all the clients in a csv file and retrieve them
+date of birth, and if they have negative balances. We can also put all the clients in a csv file and retrieve them
 directly from the csv when we have to.
 
 ---
@@ -15,7 +15,7 @@ We can create a client by putting the objects such as title, first name, last na
 occupation, account balance, and overdraft limit in Client.
 
 john_king = Client('Mr', 'John', 'King', 'He/Him', date(2002, 12, 31), 'Student', 1000, 100) adds a client to 
-the list of the clients automatically.
+the list of clients automatically.
 
 We have to make sure all the objects are the correct types otherwise the code will give a type error.
 
@@ -41,7 +41,7 @@ Example for the getter functions:
 7. get_account_balance() gives the account balance of the client.
 8. get_overdraft_limit() gives the overdraft limit of the client.
 
-I have also made the date of birth, account balance ,and the overdraft limit of a client as private 
+I have also made the date of birth, account balance, and the overdraft limit of a client as a private 
 attributes to add privacy for the user's sensitive information.
 
 ---
@@ -88,7 +88,7 @@ We have the following setter functions:
 
 ### Sorting functions
 We can sort the list of all clients by using the list_by functions. The assumption here is that
-the arguments passed by the user will be case sensitive.
+the arguments passed by the user will be case-sensitive.
 
 We can sort the clients in 4 ways:
 1. list_by_first_name(arg) returns a list of all the clients that have the same first name as the argument. 
@@ -112,8 +112,8 @@ delete_client(arg) argument is the client.
 ---
 
 ### Client to file
-We can also put all the clients into a file, we can write all the clients to the file or we can append 
-new client to a file.
+We can also put all the clients into a file, we can write all the clients to the file, or can append 
+new clients to a file.
 
 object_to_file(arg1, arg2) argument1 is the file we want to add clients into, and the argument2 is the 
 mode(write or append) we want to choose.
