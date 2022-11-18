@@ -281,7 +281,7 @@ def test_list_by_negative_balance():
 
 def test_list_all():
     """This test will print all the clients."""
-    print(bank.list_all())
+    print('Test for list_all():', bank.list_all())
 
 
 def test_object_to_file():
@@ -291,7 +291,7 @@ def test_object_to_file():
 
 def test_file_to_list_object():
     """This test will check if the client data from the csv file can be retrieved."""
-    print(client.file_to_list_object('test_clients.csv'))  # Can handle more than 100 clients
+    print("Test for retrieval:", client.file_to_list_object('test_clients.csv'))  # Can handle more than 100 clients
 
 
 def test_delete_client():
@@ -308,23 +308,41 @@ def test_delete_client():
 def main():
     """This runs all the function to test the code."""
     test_client()
+    print('')
     test_bad_client()
+    print('')
     test_getters()
+    print('')
     test_deposit()
+    print('')
     test_bad_deposit_string()
+    print('')
     test_bad_deposit_negative()
+    print('')
     test_withdraw()
+    print('')
     test_withdraw_over_overdraft_limit()
+    print('')
     test_bad_withdraw_string()
+    print('')
     test_bad_withdraw_negative()
+    print('')
     test_setters()
+    print('')
     test_list_by_first_name()
+    print('')
     test_list_by_last_name()
+    print('')
     test_list_by_date_of_birth()
+    print('')
     test_list_by_negative_balance()
+    print('')
     test_list_all()
+    print('')
     test_object_to_file()
+    print('')
     test_file_to_list_object()
+    print('')
     test_delete_client()
 
 
