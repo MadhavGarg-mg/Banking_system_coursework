@@ -177,3 +177,9 @@ class Client:
         if not isinstance(new_occupation, str):
             raise TypeError("Occupation should be of type string.")
         self.occupation = new_occupation
+
+    def set_overdraft_limit(self, new_overdraft_limit: (int, float)):
+        """This function sets the occupation of the client as the new_occupation."""
+        if not isinstance(new_overdraft_limit, str):
+            raise TypeError("Occupation should be of type string.")
+        self.__overdraft_limit = new_overdraft_limit
